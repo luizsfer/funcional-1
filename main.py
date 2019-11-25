@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+
+### Luiz Ferreira
+### Python funcional 1
+### Alura
+
+## Codigo para terminal
+'''
 def funcao():
     pass
 
@@ -59,10 +67,31 @@ def funcao_com_args_kwargs(*args, **kwargs):
 
     for arg in args:
         total += arg
-    
+
     print("Total: ", total)
 
     if retirar:
         total -= retirar
+        print("Total com retirar: ", total)
 
-    print("Total com retirar: ", total)
+# funcao_com_args_kwargs(10,20,30)
+# funcao_com_args_kwargs(10,20,30,retirar=15)
+'''
+
+from estoque import operacoes
+
+def main ():
+    """
+    Função principal
+    """
+    print(operacoes.somar(1,3,4,5))
+    # print(operacoes.dobrarValor(1,3,4,5))
+    # print(operacoes.dobrarValor(operacoes.somar(1,3,4,5)))
+    print(operacoes.dobrarValor(sum((1,3,4,5))))
+
+if __name__ == "__main__":
+    """
+    Ação que permite execução do módulo principal
+    """
+    main()
+
