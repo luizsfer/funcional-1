@@ -101,17 +101,24 @@ def main ():
     # Aplicando função map para dois argumentos
     # print(list(map(valorDesconto, (100,200,300), (0.10,0.15,0.20))))
 
-    valores = (100,200,300)
-    descontos = (0.10, 0.20, 0.30)
+    valores = (100, 150, 200, 300)
+    descontos = (0.10, 0.15, 0.20, 0.30)
 
     # Grande e confuso? Vamos simplificar nas próximas aulas, não se preocupe
     # print(list(map(valorDescontoAplicado, valores, list(map(valorDesconto, valores,descontos)))))
 
     #print(reduce(somar,(100,200,300)))
-    print(reduce(somar,valores))
+    # print(reduce(somar,valores))
 
     # Podemos somar as duas funções para obtermos um resultado mais específico, assim como as demais
-    print(reduce(somar, list(map(valorDesconto, valores, descontos))))
+    # print(reduce(somar, list(map(valorDesconto, valores, descontos))))
+
+    # Função filter
+    # print(list(filter(valoresMaiores, valores)))
+
+    # Função filter para valores de descontos
+    # Não se assuste, isso ficará mais fácil
+    print(list(map(descontoDezPorcento, list(filter(valoresMaiores, valores)))))
 
 if __name__ == "__main__":
     """
