@@ -78,16 +78,30 @@ def funcao_com_args_kwargs(*args, **kwargs):
 # funcao_com_args_kwargs(10,20,30,retirar=15)
 '''
 
-from estoque import operacoes
+from estoque.gerenciamento import *
 
 def main ():
     """
     Função principal
     """
-    print(operacoes.somar(1,3,4,5))
+    # print(operacoes.somar(1,3,4,5))
     # print(operacoes.dobrarValor(1,3,4,5))
     # print(operacoes.dobrarValor(operacoes.somar(1,3,4,5)))
-    print(operacoes.dobrarValor(sum((1,3,4,5))))
+    # print(operacoes.dobrarValor(sum((1,3,4,5))))
+
+    # Aplicando valores de desconto - função como parâmetro de outra função
+    # print(valorDescontoAplicado(100, valorDesconto(100, 0.10)))
+    
+    # Aplicando função map
+    print(list(map(descontoDezPorcento, (100,200,300))))
+
+    # Aplicando função map para dois argumentos
+    print(list(map(valorDesconto, (100,200,300), (0.10,0.15,0.20))))
+
+    valores = (100,200,300)
+    descontos = (0.10, 0.20, 0.30)
+
+    print(list(map(valorDescontoAplicado, valores, list(map(valorDesconto, valores,descontos)))))
 
 if __name__ == "__main__":
     """
