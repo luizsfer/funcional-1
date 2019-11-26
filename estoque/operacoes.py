@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-def somar(*args):
+def somar(valor1, valor2):
     """
     Função que possibilita somar valores passados por argumentos
     """
-    return sum(args)
+    return valor1+valor2
 
 def dobrarValor(*args):
     """
