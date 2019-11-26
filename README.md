@@ -1,2 +1,2 @@
-# funcional-1
+# Programação funcional com Python
 Alura - Programação funcional em Python
