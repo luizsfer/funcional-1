@@ -101,8 +101,10 @@ def main ():
     valores = (100,200,300)
     descontos = (0.10, 0.20, 0.30)
 
+    # Grande e confuso? Vamos simplificar nas próximas aulas, não se preocupe
     print(list(map(valorDescontoAplicado, valores, list(map(valorDesconto, valores,descontos)))))
 
+    
 if __name__ == "__main__":
     """
     Ação que permite execução do módulo principal
