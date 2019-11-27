@@ -81,7 +81,7 @@ def funcao_com_args_kwargs(*args, **kwargs):
 from estoque.gerenciamento import *
 from estoque.operacoes import *
 # Era built-in em Python2 porém passou a ser parte do pacote functools em Python3
-# from functools import reduce
+from functools import reduce
 
 def main ():
     """
@@ -151,16 +151,36 @@ def main ():
     #       return sum(args)*2
     # - Pode ser atribuído a variáveis
     #   - Da mesma forma com que imprimimos os resultados de chamada de função diretamente, podemos atribuí-los a uma variável
-    valor = dobrarValor(2,3,4)
-    print(valor)
+    # valor = dobrarValor(2,3,4)
+    # print(valor)
     # - Pode ser armazenado em estruturas de dados
     #   - Podemos adicionar uma chamada de função dentro de uma coleção qualquer, como, por exemplo, uma dict
-    valores = {
-        "numeros": [1,2,3,4],
-        "dobro": dobrarValor(valores["numeros"])
-    }
-    print(valores)
-    print(type(valores["dobro"]))
+    # valores = {
+    #    "numeros": [1,2,3,4],
+    #    "dobro": dobrarValor(valores["numeros"])
+    #}
+    #print(valores)
+    #print(type(valores["dobro"]))
+
+    # Funções lambdas
+    # somador = lambda x, y: x + y
+    # print(somador(100,200))
+    # Sintaxe da função anônima = lambda parametro1, parametro2: função
+    
+    valores = (100, 150, 200, 300)
+    descontos = (0.10, 0.15, 0.20, 0.30)
+    
+    # print(list(map(valorDescontoAplicado, valores, list(map(valorDesconto, valores,descontos)))))
+    # print(list(map(lambda x, y: x-(x*y), valores, descontos)))
+    # Agora nossa função é capaz de calcular o desconto e aplicar com um simples ajuste no map
+    # Com o lambda podemos melhorar nosso reduce, para que ele traga o valor descontado 
+    # print(reduce(somar, list(map(valorDesconto, valores, descontos))))
+    # print(reduce((lambda x, y: x+y), list(map(valorDesconto, valores, descontos))))
+    # O filter também é um ótimo parceiro para o Lambda
+    # print(list(map(descontoDezPorcento, list(filter(valoresMaiores, valores)))))
+    # print(list(map(lambda x: x*0.10, list(filter(lambda x: x >=200, valores)))))
+    print(list(map(lambda x: x-(x*0.10), list(filter(lambda x: x >=200, valores)))))
+
 if __name__ == "__main__":
     """
     Ação que permite execução do módulo principal
