@@ -122,22 +122,45 @@ def main ():
 
     # Imutabilidade
     # variavel = [nome, preco, cores]
-    valores_mutaveis = ["Caderno", 12.00, ["azul", "vermelho", "cinza"]]
-    valores_imutaveis = ("Caderno", 12.00, ["azul", "vermelho", "cinza"])
+    # valores_mutaveis = ["Caderno", 12.00, ["azul", "vermelho", "cinza"]]
+    # valores_imutaveis = ("Caderno", 12.00, ["azul", "vermelho", "cinza"])
     # Visualizando variáveis - Mesmos valores
-    print("Mutaveis: ", valores_mutaveis[2])
-    print("Imutaveis: ", valores_imutaveis[2])
+    # print("Mutaveis: ", valores_mutaveis[2])
+    # print("Imutaveis: ", valores_imutaveis[2])
     # Alterando valores - observamos um erro
     # valores_mutaveis[1] = 15
     # valores_imutaveis[1] = 15
     # TypeError: 'tuple' object does not support item assignment
     # Lista dentro de uma tupla, é mutável ou imutável?
-    valores_imutaveis[2].append("roxo")
-    print("Após append: ", valores_imutaveis)
+    # valores_imutaveis[2].append("roxo")
+    # print("Após append: ", valores_imutaveis)
     # Tentemos mudar o valor para os iniciais, vejamos o que acontece
-    valores_imutaveis[2] = ["azul", "vermelho", "cinza"]
+    # valores_imutaveis[2] = ["azul", "vermelho", "cinza"]
     # Apesar de ser uma lista, uma atribuição de valores diretamente não é possível. Pois não podemos alterar a referência do objeto gravado na memória
 
+    # First-Class Functions e High-Order Functions
+    # Já usamos alguns de seus conceitos nas atividades anteriores
+    # Uma linguagem que possui First-Class Functions é capaz de:
+    # - Utilizar funções como parametro
+    #   - Quando aplicamos um desconto tendo seu segundo parametro a chamada da função 
+    #       valorDesconto: print(valorDescontoAplicado(100, valorDesconto(100, 0.10)))
+    # - Retornar funções como valores
+    #   - Quando utilizamos a chamada da função dobrar valor:
+    #       print(operacoes.dobrarValor(1,3,4,5))
+    #       note que o retorna dessa função é a chamada de uma outra função, dessa vez, built-in, função sum()
+    #       return sum(args)*2
+    # - Pode ser atribuído a variáveis
+    #   - Da mesma forma com que imprimimos os resultados de chamada de função diretamente, podemos atribuí-los a uma variável
+    valor = dobrarValor(2,3,4)
+    print(valor)
+    # - Pode ser armazenado em estruturas de dados
+    #   - Podemos adicionar uma chamada de função dentro de uma coleção qualquer, como, por exemplo, uma dict
+    valores = {
+        "numeros": [1,2,3,4],
+        "dobro": dobrarValor(valores["numeros"])
+    }
+    print(valores)
+    print(type(valores["dobro"]))
 if __name__ == "__main__":
     """
     Ação que permite execução do módulo principal
