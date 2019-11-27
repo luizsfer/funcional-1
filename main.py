@@ -81,7 +81,7 @@ def funcao_com_args_kwargs(*args, **kwargs):
 from estoque.gerenciamento import *
 from estoque.operacoes import *
 # Era built-in em Python2 porém passou a ser parte do pacote functools em Python3
-from functools import reduce
+# from functools import reduce
 
 def main ():
     """
@@ -101,13 +101,13 @@ def main ():
     # Aplicando função map para dois argumentos
     # print(list(map(valorDesconto, (100,200,300), (0.10,0.15,0.20))))
 
-    valores = (100, 150, 200, 300)
-    descontos = (0.10, 0.15, 0.20, 0.30)
+    # valores = (100, 150, 200, 300)
+    # descontos = (0.10, 0.15, 0.20, 0.30)
 
     # Grande e confuso? Vamos simplificar nas próximas aulas, não se preocupe
     # print(list(map(valorDescontoAplicado, valores, list(map(valorDesconto, valores,descontos)))))
 
-    #print(reduce(somar,(100,200,300)))
+    # print(reduce(somar,(100,200,300)))
     # print(reduce(somar,valores))
 
     # Podemos somar as duas funções para obtermos um resultado mais específico, assim como as demais
@@ -118,7 +118,25 @@ def main ():
 
     # Função filter para valores de descontos
     # Não se assuste, isso ficará mais fácil
-    print(list(map(descontoDezPorcento, list(filter(valoresMaiores, valores)))))
+    # print(list(map(descontoDezPorcento, list(filter(valoresMaiores, valores)))))
+
+    # Imutabilidade
+    # variavel = [nome, preco, cores]
+    valores_mutaveis = ["Caderno", 12.00, ["azul", "vermelho", "cinza"]]
+    valores_imutaveis = ("Caderno", 12.00, ["azul", "vermelho", "cinza"])
+    # Visualizando variáveis - Mesmos valores
+    print("Mutaveis: ", valores_mutaveis[2])
+    print("Imutaveis: ", valores_imutaveis[2])
+    # Alterando valores - observamos um erro
+    # valores_mutaveis[1] = 15
+    # valores_imutaveis[1] = 15
+    # TypeError: 'tuple' object does not support item assignment
+    # Lista dentro de uma tupla, é mutável ou imutável?
+    valores_imutaveis[2].append("roxo")
+    print("Após append: ", valores_imutaveis)
+    # Tentemos mudar o valor para os iniciais, vejamos o que acontece
+    valores_imutaveis[2] = ["azul", "vermelho", "cinza"]
+    # Apesar de ser uma lista, uma atribuição de valores diretamente não é possível. Pois não podemos alterar a referência do objeto gravado na memória
 
 if __name__ == "__main__":
     """
