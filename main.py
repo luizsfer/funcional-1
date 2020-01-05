@@ -5,7 +5,7 @@
 ### Alura
 
 ## Codigo para terminal
-'''
+
 def funcao():
     pass
 
@@ -76,7 +76,19 @@ def funcao_com_args_kwargs(*args, **kwargs):
 
 # funcao_com_args_kwargs(10,20,30)
 # funcao_com_args_kwargs(10,20,30,retirar=15)
-'''
+
+
+def funcao_pep570 (apenas_posicional1, apenas_posicional2=None, /, *posicional, **relacional):
+    print(apenas_posicional1)
+    print(apenas_posicional2)
+    print(posicional)
+    print(relacional)
+
+def funcao_pep570_padrao (apenas_posicional, /, padrao, *, somar):
+    print(apenas_posicional)
+    print(padrao)
+    print(somar)
+
 
 from estoque import operacoes
 
@@ -94,4 +106,5 @@ if __name__ == "__main__":
     Ação que permite execução do módulo principal
     """
     main()
+
 
