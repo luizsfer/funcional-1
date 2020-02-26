@@ -121,22 +121,29 @@ def main ():
     # print(list(map(descontoDezPorcento, list(filter(valoresMaiores, valores)))))
 
     # Imutabilidade
-    # variavel = [nome, preco, cores]
-    valores_mutaveis = ["Caderno", 12.00, ["azul", "vermelho", "cinza"]]
-    valores_imutaveis = ("Caderno", 12.00, ["azul", "vermelho", "cinza"])
-    # Visualizando variáveis - Mesmos valores
-    print("Mutaveis: ", valores_mutaveis[2])
-    print("Imutaveis: ", valores_imutaveis[2])
-    # Alterando valores - observamos um erro
-    # valores_mutaveis[1] = 15
-    # valores_imutaveis[1] = 15
-    # TypeError: 'tuple' object does not support item assignment
-    # Lista dentro de uma tupla, é mutável ou imutável?
-    valores_imutaveis[2].append("roxo")
-    print("Após append: ", valores_imutaveis)
-    # Tentemos mudar o valor para os iniciais, vejamos o que acontece
-    valores_imutaveis[2] = ["azul", "vermelho", "cinza"]
-    # Apesar de ser uma lista, uma atribuição de valores diretamente não é possível. Pois não podemos alterar a referência do objeto gravado na memória
+    # produtos_estoque_abril = [('caderno', 10), ('caneta', 20), ('borracha', 15)]
+    # produtos_estoque_maio = produtos_estoque_abril
+    # print("Estoque em abril: ", produtos_estoque_abril)
+    # print("Estoque em maio: ", produtos_estoque_maio)
+    # produtos_estoque_maio += [('apontador', 12), ('lapiseira', 10)]
+    # print("Estoque em abril: ", produtos_estoque_abril)
+    # print("Estoque em maio: ", produtos_estoque_maio)
+
+    # produtos_estoque_abril = (('caderno', 10), ('caneta', 20), ('borracha', 15))
+    # produtos_estoque_maio = produtos_estoque_abril
+    # print(type(produtos_estoque_abril))
+    # print(type(produtos_estoque_maio))
+
+    produtos_estoque_abril = (('caderno', 10), ('caneta', 20), ('borracha', 15))
+    produtos_estoque_maio = produtos_estoque_abril
+    print("Estoque em abril: ", produtos_estoque_abril)
+    print("Estoque em maio: ", produtos_estoque_maio)
+
+    #produtos_estoque_maio += (('apontador', 12), ('lapiseira', 10))
+    produtos_estoque_maio = produtos_estoque_maio + (('apontador', 12), ('lapiseira', 10))
+    
+    print("Estoque em abril: ", produtos_estoque_abril)
+    print("Estoque em maio: ", produtos_estoque_maio)
 
 if __name__ == "__main__":
     """
